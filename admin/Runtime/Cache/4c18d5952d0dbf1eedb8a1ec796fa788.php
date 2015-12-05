@@ -4,24 +4,7 @@
 <head>
 	<meta charset="UTF-8">
 	<title>admin</title>
-    <script>  
-          
-            /*  
-                计算两个日期的时间间隔天数  
-            */  
-            //时间字符串的格式：月-日-年  
-            var date1 = "12-3-2013";  
-            var date2 = "6-6-2013";  
-          
-            //讲时间字符串转化为距离1970年1月1日午夜零时的时间间隔的毫秒数  
-            var time1 = Date.parse(date1);  
-            var time2 = Date.parse(date2);  
-              
-            //讲两个时间相减，求出相隔的天数  
-            var dayCount = (Math.abs(time1 - time2))/1000/60/60/24;  
-              
-            alert(dayCount);  
-        </script>
+
 </head>
 <body>
 	<div>
@@ -30,11 +13,14 @@
 	
 	<div>
 	<li>
-		<a href="__APP__/Form/Form.html">登录</a>	
+		<a href="__APP__/Form/add.html">登录</a>	
+		<a href="__APP__/Form/read.html">读取数据</a>
+		<a href="__APP__/Form/edit.html">更新数据</a>
+		
 	</li>
 	</div>
 	
-	<div id="time"></div>  
+	
   
   
 

@@ -5,7 +5,7 @@
 <title>Form</title>
 </head>
 <body>
-	<FORM method="post" action="__URL__/insert">
+	<FORM method="post" action="__URL__/Form">
 	标题：<INPUT type="text" name="title"><br/>
 	内容：<TEXTAREA name="content" rows="5" cols="45"></TEXTAREA><br/>
 	<INPUT type="submit" value="提交">
@@ -24,6 +24,8 @@
     		<td>内容：</td>
    			 <td><?php echo ($data["content"]); ?></td>
 		</tr>
-	</table>
+	 </table>
+	
+
 </body>
 </html>
