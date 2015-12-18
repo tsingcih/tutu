@@ -7,6 +7,6 @@
         'DB_PWD'=>'',
         'DB_PORT'=>'3306',
         'DB_PREFIX'=>'think_',
-        
+        'SHOW_PAGE_TRACE' =>true, // 显示页面Trace信息
     );
 ?>

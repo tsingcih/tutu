@@ -12,6 +12,6 @@
 		<input type="submit" value="提交">			
 	
 	</form>
-	<a href="#" action="__URL__/delete">删除数据</a>
+	
 </body>
 </html>

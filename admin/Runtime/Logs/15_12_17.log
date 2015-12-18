@@ -1,0 +1,6 @@
+[ 2015-12-17T11:05:14+08:00 ] 127.0.0.1 /tutu/admin.php/Index/insert
+ERR: 非法操作:insert
+
+[ 2015-12-17T11:11:34+08:00 ] 127.0.0.1 /tutu/admin.php/Index/insert
+ERR: 非法操作:insert
+

@@ -9,10 +9,11 @@ class IndexAction extends Action {
         $condition['_logic'] = 'OR';
         // 把查询条件传入查询方法
         $User->where($condition)->select(); */
-        $Data=M('Data');
-        $data['name']='ThinkPHP';
-        $data['id']=array('exp','id+1');
-        $Data->where('data=thinkphp')->save($data);   
+        
+//         $Data=M('Data');
+//         $data['name']='ThinkPHP';
+//         $data['id']=array('exp','id+1');
+//         $Data->where('data=thinkphp')->save($data);   
          
        
 	    $Data=M('Data');//实例化Data数据模型
@@ -23,7 +24,25 @@ class IndexAction extends Action {
     public function Form(){
         $this->display();
     }
+  
+    public function insert()
+    {
+        $Form = D('Form');
+        if ($Form->create()) {
+            $_POST[create_time] = time();
+            $result = $Form->add();
+            if ($result) {
+                $this->success('操作成功！');
+            } else {
+                $this->error('写入错误！');
+            }
+        } else {
+            $this->error($Form->getError());
+        }
+        // $Form->delete("title=ddw");
     
+        // $this->display();
+    }
    
     
     

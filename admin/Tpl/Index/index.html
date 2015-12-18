@@ -7,147 +7,23 @@
 
 </head>
 <body>
-	<div>
+	
 	<volist name="data" id="vo">
 	{$vo.id}--{$vo.data}</br>
 	</volist>
-	</div>
 	
-	<div>
+	<include file="Form:add" />	
+
 	<li>
 		<a href="__APP__/Form/add.html">登录</a>	
 		<a href="__APP__/Form/read.html">读取数据</a>
 		<a href="__APP__/Form/edit.html">更新数据</a>
+		<a href="__APP__/Form/select.html">联表查询</a>
 		
 	</li>
-	</div>
 	
- <?php 
-        /* 1.求两个日期之间相差的天数*/
-        error_reporting(0);
-        
-        function diffBetweenTwoDays ($day1, $day2)
-        {
-            $second1 = strtotime($day1);
-            $second2 = strtotime($day2);
-        
-            if ($second1 < $second2) {
-                $tmp = $second2;
-                $second2 = $second1;
-                $second1 = $tmp;
-            }
-            return ($second1 - $second2) / 86400;
-        }
-        $day1 = "2013-07-27";
-        $day2 = "2013-09-04";
-        $diff = diffBetweenTwoDays($day1, $day2);
-        echo $diff."\n";
-        echo "</br>";
 
-        #3.编写一段代码实现输出99乘法表
-        for($i=1;$i<10;$i++){
-            for($j=1;$j<=$i;$j++){
-                echo $j."X".$i."=".$i*$j;
-                echo "&nbsp;&nbsp;";//空格下呗，找好久的空格。。
-            } 
-            echo "<br>"; 
-        } 
-
-
-
-        /*4.编写一段代码,实现输入一串字符,使得奇数位为大写,偶数位为小写.(不包括非字母)
-            如输入:hello world,my name is jk!
-            则显示:HeLlO wOrLd,My NaMe Is Jk!
-        */
-        //考虑不周，并有小问题第一版
-        /* $sky1='hello,world!my name is jk';
-        $sky=serialize($sky1);
-        $sttr=null;
-        for ($x=0;$x<=strlen($sky);$x++){
-                if ($x%2==1){
-                   $sttr[$x]=strtoupper($sky[$x]);
-                }else {
-                    $sttr[$x]=$sky[$x];
-                }
-                echo $sttr{$x};
-        }
-
-        //考虑不周第二版，
-        $sky='hello,world!my name is jk';
-        $sttr='';
-        for ($x=0;$x<strlen($sky);$x++){
-                if ($x%2==1){
-                   $sttr[$x]=strtoupper($sky[$x]);
-                }else {
-                    $sttr[$x]=$sky[$x];
-                }
-        }
-
-                echo $sttr;
-
-        }*/
-
-        //经提点第三版完整版。但是还是有问题版。。。不晓得从哪里改了
-        $sky1='hello,world!my name is jk';
-        $sky=serialize($sky1);
-        $sttr='';
-        $nIllegal=0;
-        for ($x=0;$x<=strlen($sky);$x++){
-            $m = $x+$nIllegal;
-            if ($sky[$x]>='a'&&$sky[$x]<='z'||$sky[$x]>='A'&&$sky[$x]<='Z'){
-                if ($m%2==1) {
-                    $sttr.=strtoupper($sky[$x]);
-                } else {
-                    $sttr.=$sky[$x];
-                }
-            } else {
-                $sttr.=$sky[$x];
-                $nIllegal++;
-            }
-        }
-        #$sttr = unserialize($sttr);
-        $sttr = unserialize(preg_replace('!s:(\d+):"(.*?)";!se', '"s:".strlen("$2").":\"$2\";"', $sttr));
-        var_dump($sttr);
-
-
-        //朋友写的第四版
-        /*$sky1='hello,WORld!my na32m123e is jk';
-        $sky=serialize($sky1);
-        $sttr='';
-        $nIllegal = 0;
-        for ($x=0;$x<=strlen($sky);$x++){
-            $m = $x+$nIllegal;
-            $bool = true;
-            if ( $sky[$x] >= 'a' && $sky[$x] <= 'z' ) {
-                if ( $m%2==1 ) {
-                    $sttr .= strtoupper($sky[$x]);
-                } else {
-                    $bool = false;
-                }
-            } elseif($sky[$x] >= 'A' && $sky[$x] <= 'Z' ) {
-                if ( $m%2==0 ) {
-                    $sttr .= strtolower($sky[$x]);
-                } else {
-                    $bool = false;
-                }
-            } else {
-                $bool = false;
-                $nIllegal++;
-            }
-            if ( false == $bool ) {
-                $sttr .= $sky[$x];
-            }
-        }
-       # $sttr = unserialize($sttr);
-        $sttr = unserialize(preg_replace('!s:(\d+):"(.*?)";!se', '"s:".strlen("$2").":\"$2\";"', $sttr));
-        var_dump($sttr);*/
-
-        print_r(preg_filter('#(\w+?\W*\w?)#e','ucfirst("$1")','hello,world!my name is jk'));
-                
-
-        
-?>
-
+ 
 
 	
   
